@@ -1,0 +1,89 @@
+<ion-header class="bg-thime">
+	<ion-navbar>
+		<ion-title>{{'purchase_plan' | translate}}</ion-title>
+	</ion-navbar>
+	<ion-list no-lines>
+		<ion-item (click)="purchaseplan()">
+			<h2 class="text-ellipsis">{{plan.name}}</h2>
+			<p class="text-ellipsis">{{plan.description}}</p>
+			<h3 class="text-ellipsis" item-end>{{plan.priceToShow}}</h3>
+		</ion-item>
+	</ion-list>
+</ion-header>
+
+<ion-content class="bg-light">
+
+	
+    <div *ngIf="cardInfo" class="form">
+        <ion-list no-lines>
+            <ion-item>
+                <ion-input type="text" maxlength="16" placeholder="{{'card_number' | translate}}"
+                    [(ngModel)]="cardInfo.number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" placeholder="{{'card_name' | translate}}" [(ngModel)]="cardInfo.name">
+                </ion-input>
+            </ion-item>
+            <ion-row>
+                <ion-col col-4>
+                    <ion-item>
+                        <ion-input type="text" maxlength="3" placeholder="{{'card_cvv' | translate}}"
+                            [(ngModel)]="cardInfo.cvc"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-4 class="">
+                    <div class="d-flex mr-5">
+                        <ion-item>
+                            <ion-input type="text" maxlength="2" placeholder="{{'card_month' | translate}}"
+                                [(ngModel)]="cardInfo.expMonth"></ion-input>
+                        </ion-item>
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-item>
+                        <ion-input type="text" maxlength="2" placeholder="{{'card_year' | translate}}"
+                            [(ngModel)]="cardInfo.expYear"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+
+             <ion-item *ngIf="paymentResponse && paymentResponse.length">
+                                <ion-label text-right>{{paymentResponse}}</ion-label>
+                            </ion-item> 
+        </ion-list>
+    </div>
+
+
+
+<!--
+	<div class="payment_options">
+		<ion-list no-lines> 
+			<h3>{{'payment_methods' | translate}}</h3>
+			<ion-item>
+				<ion-icon text-start item-start class="zmdi zmdi-card"></ion-icon>
+				<h2>{{'credit_card' | translate}}</h2>
+			</ion-item>
+			<ion-item>
+				<ion-icon text-start item-start class="zmdi zmdi-card"></ion-icon>
+				<h2>{{'debit_card' | translate}}</h2>
+			</ion-item>
+			<ion-item>
+				<ion-icon text-start item-start class="zmdi zmdi-paypal-alt"></ion-icon>
+				<h2>{{'paypal' | translate}}</h2>
+			</ion-item>
+			<ion-item>
+				<ion-icon text-start item-start class="zmdi zmdi-google-play"></ion-icon>
+				<h2>{{'googleplay' | translate}}</h2>
+			</ion-item>
+		</ion-list>
+	</div>
+-->
+
+</ion-content>
+<!--
+<ion-footer>
+	<button class="btn" ion-button round full margin-top margin-bottom (click)="confirm()">
+		{{'confirm' | translate}}
+	</button>
+</ion-footer>-->

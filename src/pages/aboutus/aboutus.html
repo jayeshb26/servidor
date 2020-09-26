@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{'about_us' | translate}}
+        </ion-title>
+    </ion-navbar>
+    <div class="logo-box bg-thime">
+        <div class="logo">
+            <img src="assets/icon/servivendor.png">
+            <!-- <h1 class="text-white">{{config.appName}}</h1> -->
+        </div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div class="text">
+        <h2 class="text-thime">{{'about_us' | translate}}</h2>
+        <p [innerHTML]="aboutUs"></p>
+    </div>
+</ion-content>

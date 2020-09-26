@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'contact_us' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!--    <img src="../../assets/imgs/20.png">-->
+    <div class="call-now bg-thime">
+        <h6 text-center class=" text-white">{{'call_to_speak_with_us' | translate}}</h6>
+        <button class="btn text-thime" ion-button round full margin-top margin-bottom icon-start (click)="dialSupport()">
+            <ion-icon name="md-call" padding-right></ion-icon><strong>{{'call_now' | translate}}</strong>
+        </button>
+    </div>
+    <h5 text-center margin-top margin-bottom padding-bottom class="text-thime">{{'or_write_us_your_issue' | translate}}</h5>
+
+    <div class="form">
+        <ion-list no-lines padding-bottom>
+            <ion-item>
+                <ion-avatar item-start>
+                    <ion-icon name="md-person" class="text-thime"></ion-icon>
+                </ion-avatar>
+                <ion-label class="text-grey" floating>{{'your_name' | translate}}</ion-label>
+                <ion-input type="text" [readonly]="true" [(ngModel)]="userMe.name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-avatar item-start style="margin-bottom: 3px; margin-right: 28px;">
+                    <ion-icon name="md-phone-portrait" class="text-thime"></ion-icon>
+                </ion-avatar>
+                <ion-label class="text-grey" floating>{{'mobile_number' | translate}}</ion-label>
+                <ion-input type="text" [readonly]="true" [(ngModel)]="userMe.mobile_number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-avatar item-start style="margin-bottom: 3px; margin-right: 28px;">
+                    <ion-icon name="md-mail" class="text-thime"></ion-icon>
+                </ion-avatar>
+                <ion-label class="text-grey" floating>{{'your_message' | translate}}</ion-label>
+                <ion-textarea type="text" [(ngModel)]="supportRequest.message"></ion-textarea>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
+<ion-footer>
+    <button class="btn" ion-button round full margin-top (click)="submitSupport()">{{'submit' | translate}}</button>
+</ion-footer>

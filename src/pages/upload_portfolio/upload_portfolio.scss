@@ -1,0 +1,49 @@
+page-upload_portfolio {
+    .img_box {
+        position: relative;
+        overflow: hidden;
+        background: lighten($light-grey-color, 10%);
+        width: calc(100% - 16px);
+        margin: 8px auto;
+        height: 350px;
+
+        ion-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 75px;
+            height: 75px;
+            line-height: 75px;
+            font-size: 4rem;
+            border-radius: 50%;
+            background: $thime-color;
+            margin: auto;
+            text-align: center;
+            color: $white-color;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            margin: auto;
+        }
+    }
+
+    .form {
+        max-width: calc(100% - 30px);
+    }
+
+    .footer {
+        .button.btn {
+            background: $green-color !important;
+            font-weight: 500 !important;
+            font-size: 1.5rem !important;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<ion-tabs #myTabs selectedIndex={{sIndex}}>
+    <ion-tab [root]="tab1Root" tabTitle="Bookings" tabIcon="md-calendar" tabsHideOnSubPages="true"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Home" tabIcon="md-home" tabsHideOnSubPages="true"></ion-tab>
+    <ion-tab [root]="tab3Root" class="servitext" tabTitle="{{'My Servidor' | translate}}" tabIcon="md-notifications" tabsHideOnSubPages="true">
+        <button ion-fab>
+            <img src="assets/icon/servivendor.png" class="tab-icon" style="width: 40px;height: 40px;" tabsHideOnSubPages="true">
+        </button>
+    </ion-tab>
+    <ion-tab [root]="tab5Root" tabTitle="{{'account' | translate}}" tabIcon="md-person" tabsHideOnSubPages="true"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="Transactions" tabIcon="md-repeat" tabsHideOnSubPages="true"></ion-tab>
+</ion-tabs>

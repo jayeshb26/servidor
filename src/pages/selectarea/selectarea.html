@@ -1,0 +1,36 @@
+<ion-header>
+ <ion-navbar color="primary">
+		<ion-title>
+			<span (click)="close()">{{'cancel' | translate}}</span>
+			<button [disabled]="saveDisabled" ion-button  class="end" (click)="save()">{{'save' | translate}}</button>
+		</ion-title>
+	</ion-navbar>
+
+    <ion-toolbar>
+        <ion-row>
+            <ion-col col-11>
+                <ion-searchbar [(ngModel)]="query" placeholder="{{'search_location' | translate}}" (ionInput)="searchPlace()"></ion-searchbar>
+            </ion-col>
+            <ion-col col-1>
+                <ion-icon name="md-locate" (click)="detect()"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+
+    <ion-list>
+        <ion-item *ngFor="let place of places" (click)="selectPlace(place)">{{place.description}}</ion-item>
+    </ion-list>
+
+</ion-header>
+
+<ion-content>
+
+    <div #pleaseConnect id="please-connect">
+        <p>{{'please_connect_to_the_internet' | translate}}</p>
+    </div>
+
+    <div #map id="map">
+        <ion-spinner></ion-spinner>
+    </div>
+
+</ion-content>

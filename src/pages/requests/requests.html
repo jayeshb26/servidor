@@ -1,0 +1,53 @@
+<ion-header class="bg-thime">
+    <ion-navbar>
+        <ion-title>Bookings</ion-title>
+    </ion-navbar>
+    <ion-segment [(ngModel)]="requests" (ionChange)="onSegmentChange()">
+        <ion-segment-button value="ongoing">
+            {{'ongoing' | translate}}
+        </ion-segment-button>
+        <ion-segment-button value="completed">
+            {{'completed' | translate}}
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'pull_refresh' | translate}}"
+            refreshingSpinner="circles" refreshingText="{{'refreshing' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="empty-view" *ngIf="!loadingShown && (!toShow || !toShow.length)">
+        <div style="text-align:center">
+            <img src="assets/imgs/empty_appointment.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold;">{{'no_requests_to_show' | translate}}</span>
+        </div>
+    </div>
+    <div>
+        <ion-list no-lines>
+            <ion-item *ngFor="let ap of toShow" (click)="requestDetail(ap)">
+                <ion-avatar item-start>
+                    <img *ngIf="ap.user && ap.user.image_url" data-src="{{ap.user.image_url}}">
+                    <img *ngIf="!ap.user || !ap.user.image_url" src="assets/imgs/empty_dp.png">
+                </ion-avatar>
+                <h2 class="{{ap.status}}">
+                    <span class="apid"><i>#GJ20{{ap.id}}</i></span>
+                    <span class="ml-auto text-ellipsis">{{ap.status | uppercase}}</span>
+                </h2>
+                <h2>
+                    <span class="text-ellipsis">{{ap.user.name}} </span>
+                    <span class="ml-auto text-ellipsis">{{ ap.date | date: 'd/MM/y' }} | {{ ap.date+' '+ap.time_from | date: 'h:mm a' }} - {{ap.date+' '+ap.time_to | date: 'h:mm a'}}</span>
+                </h2>
+                <p class="text-grey text-ellipsis">
+                    <span class="text-ellipsis">{{ap.service_name}}</span>
+                    <span *ngIf="ap.type == 'service'" class="ml-auto text-ellipsis">{{ap.service.ps_title}}</span>
+                    <span *ngIf="ap.type == 'sub'" class="ml-auto text-ellipsis"><i>Subscription</i></span>
+                </p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header class="bg-thime">
+    <ion-navbar>
+        <ion-title>{{'packages' | translate}}</ion-title>
+    </ion-navbar>
+    <div class="header-text text-white" text-center>
+        <h1 class="text-ellipsis">{{myPlanDetail.leads_remaining_for_today}}</h1>
+        <h2>{{'leads_left_today' | translate}}</h2>
+        <p>{{myPlanDetail.remaining_days_count}} {{'days_left' | translate}}</p>
+    </div>
+</ion-header>
+
+<ion-content class="bg-light">
+    <!--    <img src="assets/imgs/19.png">-->
+    <ion-list *ngIf="plans" no-lines>
+        <h4 class="text-ellipsis">{{'purchase_plans' | translate}}</h4>
+        <ion-item *ngFor="let plan of plans" (click)="planDetail(plan)">
+            <h2 class="text-ellipsis">{{plan.name}}</h2>
+            <p class="text-ellipsis">{{plan.description}}</p>
+            <h3 class="text-ellipsis" item-end>{{plan.priceToShow}}</h3>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<!-- <ion-footer>
+    <div class="fixed-bottom" text-center (click)="conatctus()">
+        <h5>{{'need_help' | translate}}<strong class="text-thime">{{'contact_us' | translate}}</strong></h5>
+    </div>
+</ion-footer> -->

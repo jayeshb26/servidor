@@ -1,0 +1,73 @@
+<ion-header class="bg-thime">
+    <ion-navbar>
+        <ion-title>Appointments For You</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'pull_refresh' | translate}}"
+            refreshingSpinner="circles" refreshingText="{{'refreshing' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="empty-view" *ngIf="!loadingShown && (!appointments || !appointments.length)">
+        <div style="text-align:center">
+            <img src="assets/imgs/empty_appointment.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold;">{{'no_requests_to_show' | translate}}</span>
+        </div>
+    </div>
+    <div>
+        <ion-list no-lines>
+            <ion-item *ngFor="let ap of appointments"
+                [ngClass]="(ap.status == 'complete' || ap.status == 'rejected' || ap.status == 'cancelled') ? 'accepted' : 'upcoming'">
+                <ion-avatar item-start>
+                    <img *ngIf=" ap.image_url" data-src="{{ap.image_url}}">
+                    <img *ngIf=" !ap.image_url" src="assets/imgs/empty_dp.png">
+                </ion-avatar>
+                <h2>
+                    <span class="">{{ap.uname}}</span>
+                </h2>
+				<ion-row>
+                    <ion-col col-12>
+                        <p>
+                            <small>Date and Time</small>
+                            <span class="ml-auto">{{ ap.date | date: 'd/MM/y' }} | {{ ap.date+' '+ap.time_from | date: 'h:mm a' }} - {{ap.date+' '+ap.time_to | date: 'h:mm a'}}</span>
+                        </p>
+                    </ion-col>
+                </ion-row>
+				<ion-row>
+                    <ion-col col-12>
+                        <p>
+                            <small>Service</small>
+                            <span class="ml-auto">{{ap.service_name}}</span>
+                        </p>
+                    </ion-col>
+                </ion-row>
+				<ion-row>
+                    <ion-row>
+                        <ion-col col-12>
+                            <p>
+                                <small>Task</small>
+                                <span class="ml-auto">{{ap.task}}</span>
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-col col-12>
+                        <p>
+                            <small>Area</small>
+                            <span class="ml-auto">{{ap.area}}</span><br>
+                            <span class="ml-auto">{{ap.landmark}}</span>
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="ap.pa_status == 'pending' || ap.pa_status == 'accepted'">
+                    <ion-col col-12 (click)="acceptApointment(ap)">
+                        <button ion-button icon-start full class="text-green">
+                            <ion-icon name="ios-checkmark-circle"></ion-icon>{{'accept_job' | translate}}
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

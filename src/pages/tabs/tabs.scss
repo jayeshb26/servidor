@@ -1,0 +1,57 @@
+page-tabs {
+    .tabs .tabbar .tab-button[aria-selected=true] {
+        border: none;
+        color: $sec-color !important;
+        .tab-button-text {
+            color: $sec-color;
+            font-weight: bold;
+            // margin-top: 20px;
+        }
+    }
+    ion-fab{
+        bottom: 25px;
+        --border-color: white;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        ion-fab{
+            --border-style: solid;
+            --border-width: 6px;
+            --border-color: white;
+            --box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.16);
+            --background: white;
+            --background-activated:white;
+        }
+    }
+    
+    .ion-md-notifications {
+        content: url('http://52.66.119.71/admin/uploads/logos/servivendor.png');
+        width: 50px;
+        height: 50px;
+        margin-top: -60px !important;
+        position: fixed;
+        -webkit-box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        padding: 7px;
+        background: white;
+    }
+    
+    .tabs .tabbar .tab-button .tab-button-icon {
+        color: $thime-color;
+    }
+    
+    .tabs .tabbar .tab-button .tab-button-text {
+        font-size: 1.1rem;
+    }
+    .tab-button:nth-child(3) .tab-button-text {
+        margin-top: 24px !important;
+        position: fixed;
+        // font-weight: bold;
+        // font-size: 1rem;
+    }
+    .tab-button.icon-only {
+        padding: 0px !important;
+    }
+}

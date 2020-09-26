@@ -1,0 +1,49 @@
+<ion-content>
+    <div class="logo-box bg-thime">
+        <div class="logo">
+            <img src="assets/icon/servivendor.png">
+            <!-- <h1 class="text-white">{{config.appName}}</h1> -->
+        </div>
+    </div>
+
+    <p class="text-grey" text-center>Select Expert Type</p>
+
+    <div class="form">
+        <ion-list inset padding-bottom>
+            <ion-item>
+                <ion-row>
+                    <!-- <ion-col col-6><span (click)="goToSignInPage('vendor')">
+                        <ion-icon name="md-contact"></ion-icon><br>Vendor</span>
+                    </ion-col>
+                    <ion-col col-6><span (click)="goToSignInPage('store_manager')">
+                        <ion-icon name="md-briefcase"></ion-icon><br>Store Manager</span>
+                    </ion-col>
+                    <ion-col col-6><span (click)="goToSignInPage('v_service_man')">
+                        <ion-icon name="md-construct"></ion-icon><br>
+                        Vendor<br> Service Man</span>
+                    </ion-col> -->
+                    <ion-col col-6 (click)="goToSignInPage('provider')">
+                        <span>
+                            <ion-icon name="md-construct"></ion-icon><br>Service Man
+                        </span>
+                    </ion-col>
+                    <ion-col col-6 (click)="commingSoon()">
+                        <span>
+                            <ion-icon name="md-contact"></ion-icon><br>Vendor
+                        </span>
+                    </ion-col>
+                    <ion-col col-6 (click)="commingSoon()">
+                        <span>
+                            <ion-icon name="md-briefcase"></ion-icon><br>Store Manager
+                        </span>
+                    </ion-col>
+                    <ion-col col-6 (click)="commingSoon()">
+                        <span>
+                            <ion-icon name="md-construct"></ion-icon><br>Vendor<br> Service Man
+                    </span>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

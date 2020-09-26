@@ -1,0 +1,202 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>My Servidor</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+
+    <ion-list *ngIf="role == 'vendor' || role == 'v_service_man'" class="profile">
+        <ion-item>
+            <ion-avatar item-start>
+                <!-- <img *ngIf="appointment.user && appointment.user.image_url" data-src="{{appointment.user.image_url}}"> -->
+                <img src="assets/imgs/empty_dp.png">
+            </ion-avatar>
+            <h2 class="d-flex">
+                <strong class="text-ellipsis">{{user.name}}</strong>
+                <span *ngIf="role == 'v_service_man'" class="end end1">
+                    My Vendor
+                </span>
+            </h2>
+            <div class="details">
+                <p class="" *ngIf="profile.primary_category">
+                    <small>Services</small>
+                    <span class="text-ellipsis">{{profile.primary_category.title}}</span>
+                    <span *ngIf="role == 'v_service_man'" class="end end2">
+                        <ion-icon name="md-call" text-start></ion-icon>&nbsp;&nbsp;Call Now
+                    </span>
+                </p>
+                <!-- <div class="location">
+                    <p class="job-fess">
+                        <small>{{'address' | translate}}</small>
+                        <span class="">Shop No.2, Sahkar Nagar, Dahod, Gujarat 389151</span>
+                    </p>
+                </div> -->
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-list *ngIf="role == 'provider' || role == 'v_service_man'" class="profile">
+        <ion-item>
+            <ion-avatar item-start>
+                <!-- <img *ngIf="appointment.user && appointment.user.image_url" data-src="{{appointment.user.image_url}}"> -->
+                <img src="assets/imgs/empty_dp.png">
+            </ion-avatar>
+            <h2 class="d-flex">
+                <strong class="text-ellipsis">{{user.name}}</strong>
+                <!-- <span class="end">
+                    <ion-icon name="md-call" class="text-thime" text-start></ion-icon>
+                </span> -->
+            </h2>
+            <div class="details">
+                <p class="">
+                    <small>Services</small>
+                    <span class="text-ellipsis">{{profile.primary_category.title}}</span>
+                </p>
+                <!-- <div class="location">
+                    <p class="job-fess">
+                        <small>{{'address' | translate}}</small>
+                        <span class="">Shop No.2, Sahkar Nagar, Dahod, Gujarat 389151</span>
+                    </p>
+                </div> -->
+            </div>
+        </ion-item>
+    </ion-list>
+    <div *ngIf="role == 'vendor'" class="job-status">
+        <h2>My Service Man(s)</h2>
+        <ion-list no-lines>
+            <ion-item [ngClass]="'active'">
+                <span item-start class="circle"></span>
+                <div class="text d-flex">
+                    <ion-avatar item-start>
+                        <img src="assets/imgs/empty_dp.png">
+                    </ion-avatar>
+                    <h4 class="text-ellipsis">Joshi Piyush
+                        <small>Car Cleaning</small>
+                    </h4>
+                    <span class="end cflex">
+                        <ion-icon name="md-call" class="text-thime"></ion-icon>
+                        <ion-item>
+                            <ion-toggle checked="true"></ion-toggle>
+                        </ion-item>
+                    </span>
+                </div>
+            </ion-item>
+            <ion-item [ngClass]="'active'">
+                <span item-start class="circle"></span>
+                <div class="text d-flex">
+                    <ion-avatar item-start>
+                        <img src="assets/imgs/empty_dp.png">
+                    </ion-avatar>
+                    <h4 class="text-ellipsis">Dudhiya Murtaza
+                        <small>Carpet Cleaning</small>
+                    </h4>
+                    <span class="end cflex">
+                        <ion-icon name="md-call" class="text-thime"></ion-icon>
+                        <ion-item>
+                            <ion-toggle checked="false"></ion-toggle>
+                        </ion-item>
+                    </span>
+                </div>
+            </ion-item>
+            <ion-item [ngClass]="'active'">
+                <span item-start class="circle"></span>
+                <div class="text d-flex">
+                    <ion-avatar item-start>
+                        <img src="assets/imgs/empty_dp.png">
+                    </ion-avatar>
+                    <h4 class="text-ellipsis">Barot Jayesh
+                        <small>Kitchen Cleaning</small>
+                    </h4>
+                    <span class="end cflex">
+                        <ion-icon name="md-call" class="text-thime"></ion-icon>
+                        <ion-item>
+                            <ion-toggle checked="true"></ion-toggle>
+                        </ion-item>
+                    </span>
+                </div>
+            </ion-item>
+            <ion-item [ngClass]="'active'">
+                <span item-start class="circle"></span>
+                <div class="text d-flex">
+                    <ion-avatar item-start>
+                        <img src="assets/imgs/empty_dp.png">
+                    </ion-avatar>
+                    <h4 class="text-ellipsis">Vikash Verma
+                        <small>Home Cleaning</small>
+                    </h4>
+                    <span class="end cflex">
+                        <ion-icon name="md-call" class="text-thime"></ion-icon>
+                        <ion-item>
+                            <ion-toggle checked="false"></ion-toggle>
+                        </ion-item>
+                    </span>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <ion-row *ngIf="rating && (role == 'provider' || role == 'v_service_man')" class="details ">
+        <ion-col col-6>
+            <button ion-button full class="btn">
+                <ion-icon name="md-star"></ion-icon>
+                <span>{{rating.total_ratings}} <small>{{'people_reviewed' | translate}}</small></span>
+            </button>
+        </ion-col>
+
+        <ion-col col-6>
+            <button ion-button full class="btn">
+                <ion-icon name="md-checkmark"></ion-icon>
+                <span>{{rating.total_completed}}<small>{{'tasks_completed' | translate}}</small></span>
+            </button>
+        </ion-col>
+    </ion-row>
+    <div *ngIf="rating && (role == 'provider' || role == 'v_service_man')" class="rating-box bg-thime">
+        <h6 class="text-white" text-center>{{'your_current_rating' | translate}}</h6>
+        <h2 class="text-white" text-center>{{rating.average_rating}}
+            <ion-icon name="md-star"></ion-icon>
+        </h2>
+        <div class="rating" *ngIf="rating.summary && rating.summary.length == 5">
+            <p class="text-white">
+                <span class="text-1">5<ion-icon name="md-star"></ion-icon></span>
+                <span class="rate-bar">
+                    <span class="rating-status" [style.width]="rating.summary[4].percent+'%'"></span>
+                </span>
+                <span class="text-2">{{rating.summary[4].total}}</span>
+            </p>
+            <p class="text-white">
+                <span class="text-1">4<ion-icon name="md-star"></ion-icon></span>
+                <span class="rate-bar">
+                    <span class="rating-status" [style.width]="rating.summary[3].percent+'%'"></span>
+                </span>
+                <span class="text-2">{{rating.summary[3].total}}</span>
+            </p>
+            <p class="text-white">
+                <span class="text-1">3<ion-icon name="md-star"></ion-icon></span>
+                <span class="rate-bar">
+                    <span class="rating-status" [style.width]="rating.summary[2].percent+'%'"></span>
+                </span>
+                <span class="text-2">{{rating.summary[2].total}}</span>
+            </p>
+            <p class="text-white">
+                <span class="text-1">2<ion-icon name="md-star"></ion-icon></span>
+                <span class="rate-bar">
+                    <span class="rating-status" [style.width]="rating.summary[1].percent+'%'"></span>
+                </span>
+                <span class="text-2">{{rating.summary[1].total}}</span>
+            </p>
+            <p class="text-white">
+                <span class="text-1">1<ion-icon name="md-star"></ion-icon></span>
+                <span class="rate-bar">
+                    <span class="rating-status" [style.width]="rating.summary[0].percent+'%'"></span>
+                </span>
+                <span class="text-2">{{rating.summary[0].total}}</span>
+            </p>
+        </div>
+        <div class="btn-container">
+            <button class="btn text-thime" ion-button round full (click)="allreview()">
+                {{'read_all_reviews' | translate}}
+            </button>
+        </div>
+    </div>
+
+</ion-content>

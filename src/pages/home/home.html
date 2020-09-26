@@ -1,0 +1,137 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title><b>Servidor Expert<span>{{roleName}}</span></b></ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'pull_refresh' | translate}}"
+            refreshingSpinner="circles" refreshingText="{{'refreshing' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+	<!-- <div class="empty-view" *ngIf="(!notifications || !notifications.length)">
+		<div style="text-align:center">
+			<img src="assets/imgs/empty_notification.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold;">
+				{{'empty_notifications' | translate}}
+			</span>
+		</div>
+	</div>
+	<ion-list *ngIf="notifications && notifications.length" no-lines>
+		<ion-item *ngFor="let item of notifications">
+			<ion-label>
+				<h2 class="d-flex"><span class="item_title {{item.colorclass}}">{{item.title}}</span> <span class="end" text-end>{{item.time}}</span></h2>
+				<p>{{item.detail}}</p>
+			</ion-label>
+		</ion-item>
+	</ion-list> -->
+	<ion-list no-lines>
+		<h6><ion-icon name="md-calendar"></ion-icon>&nbsp;&nbsp;&nbsp;Booking Statistics</h6>
+		<ion-row>
+			<ion-col col-6 (click)="goToAppointments('pending')" class="thime-block">
+				<ion-row>
+					<ion-col col-9 class="fblock">
+						<p class="p1"><ion-icon name="md-bookmark"></ion-icon></p>
+						<p class="p2">Today's<br>Bookings</p>
+					</ion-col>
+					<ion-col col-3 class="sblock">
+						<span class="cspan">{{todayBooking}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			<ion-col col-6 (click)="goToAppointments('rejected')" class="red-block">
+				<ion-row>
+					<ion-col col-9 class="fblock">
+						<p class="p1"><ion-icon name="md-close-circle"></ion-icon></p>
+						<p class="p2">Unassigned<br>Bookings</p>
+					</ion-col>
+					<ion-col col-3 class="sblock">
+						<span class="cspan">{{unassiBooking}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			<ion-col col-6 class="sec-block">
+				<ion-row>
+					<ion-col col-9 class="fblock">
+						<p class="p1"><ion-icon name="ios-timer"></ion-icon></p>
+						<p class="p2">In Progress<br>Bookings</p>
+					</ion-col>
+					<ion-col col-3 class="sblock">
+						<span class="cspan">{{inprogBooking}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			<ion-col col-6 class="green-block">
+				<ion-row>
+					<ion-col col-9 class="fblock">
+						<p class="p1"><ion-icon name="md-cloud-done"></ion-icon></p>
+						<p class="p2">Completed<br>Bookings</p>
+					</ion-col>
+					<ion-col col-3 class="sblock">
+						<span class="cspan">{{compleBooking}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			<ion-col col-12 class="thime-block">
+				<ion-row>
+					<ion-col col-10 class="fblock">
+						<p class="p1"><ion-icon name="md-bookmarks"></ion-icon></p>
+						<p class="p2">Total<br>Bookings</p>
+					</ion-col>
+					<ion-col col-2 class="sblock">
+						<span class="cspan">{{totalBooking}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+		</ion-row>
+
+		<h6><ion-icon name="md-cash"></ion-icon>&nbsp;&nbsp;&nbsp;Payment Statistics</h6>
+		<ion-row>
+			<ion-col col-6>
+				<ion-row>
+					<ion-col col-5 class="fblock">
+						<p class="p1">₹</p>
+						<p class="p2">Today's<br>Earnings</p>
+					</ion-col>
+					<ion-col col-7 class="sblock">
+						<span class="pspan">{{todayEarning}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			<ion-col col-6>
+				<ion-row>
+					<ion-col col-5 class="fblock">
+						<p class="p1">₹</p>
+						<p class="p2">Total<br>Earnings</p>
+					</ion-col>
+					<ion-col col-7 class="sblock">
+						<span class="pspan">{{totalEarning}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			<ion-col col-6>
+				<ion-row>
+					<ion-col col-5 class="fblock">
+						<p class="p1">₹</p>
+						<p class="p2">Inhand<br>Earnings</p>
+					</ion-col>
+					<ion-col col-7 class="sblock">
+						<span class="pspan">{{inhandEarning}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			<ion-col col-6>
+				<ion-row>
+					<ion-col col-5 class="fblock">
+						<p class="p1">₹</p>
+						<p class="p2">Servidor<br>Wallet</p>
+					</ion-col>
+					<ion-col col-7 class="sblock">
+						<span class="pspan">{{walletEarning}}</span>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+		</ion-row>
+	</ion-list>
+</ion-content>

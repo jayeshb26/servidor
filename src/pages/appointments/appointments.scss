@@ -1,0 +1,180 @@
+page-appointments {
+	.scroll-content {
+		background-color: $page-background !important;
+	}
+    .segment {
+        .segment-button {
+            border: none !important;
+            position: relative;
+            font-size: 1.6rem;
+            color: $white-color;
+            text-transform: none;
+            font-weight: 400;
+            opacity: unset;
+            letter-spacing: .5px;
+            background: none !important;
+            border: none !important;
+            height: 4.7rem;
+            width: 100%;
+            font-weight: 300;
+
+            &.segment-activated {
+                font-weight: 400;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0;
+                    right: 0;
+                    width: 100px;
+                    height: 4px;
+                    margin: auto;
+                    background: $white-color;
+                }
+            }
+        }
+    }
+
+    .list {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        h2 {
+            &.heading {
+                font-size: 1.4rem;
+                font-weight: 300;
+                margin: 0;
+                padding: 13px 10px 10px 20px;
+                color: $light-grey-color;
+            }
+        }
+
+        .item {
+            width: auto;
+            padding: 4px 0px 4px 5px;
+            margin: 10px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+            ion-avatar {
+                width: 70px;
+                height: 70px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 50%;
+
+                img {
+                    position: absolute;
+                    top: 0 !important;
+                    left: -50% !important;
+                    right: -50% !important;
+                    bottom: 0 !important;
+                    margin: auto !important;
+                    width: 100%;
+                    height: auto;
+                    max-width: unset !important;
+                }
+            }
+
+            .label-md {
+                margin: 5px 0px 0px 0px;
+
+                h2 {
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 5px;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid $sec-color;
+                }
+
+                p {
+                    margin-bottom: 10px;
+                    small {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        display: block;
+                    }
+                    span {
+                        &.ml-auto {
+                            font-weight: bold;
+                            color: darken($grey-color, 10%);
+                            font-size: 1.3rem;
+                            color: $thime-color;
+                        }
+                    }
+                }
+                .col {
+                    padding: 0px;
+
+                    .button {
+                        margin-right: 2px !important;
+                        height: 4rem !important;
+                        font-size: 1.3rem !important;
+                        color: $thime-color;
+                        border-radius: 30px;
+                        font-weight: bold !important;
+                        margin: 10px 0px;
+                        background: $white-color !important;
+
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            background: none !important;
+                        }
+
+                        ion-icon {
+                            margin-right: 5px;
+                            font-size: 1.9rem !important;
+                        }
+
+                        &.disable {
+                            span {
+                                opacity: .2;
+                            }
+                        }
+
+                        &.text-green {
+                            background: $sec-color !important;
+                            font-weight: bold !important;
+
+                            .button-inner {
+                                color: $white-color !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .empty-view {
+        width: 200px;
+        margin: auto;
+        height: 200px;
+        top: 10%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10%;
+
+        img {
+            width: 100px;
+            margin: auto;
+        }
+
+        span {
+            display: block;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 50px;
+
+            span {
+                display: unset !important;
+            }
+        }
+    }
+}

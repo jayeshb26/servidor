@@ -1,0 +1,120 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			{{'my_profile' | translate}}
+			<span *ngIf="profile.is_verified==1" class="end">
+				<ion-icon name="md-checkmark-circle" text-start></ion-icon>
+				{{'verified_profile' | translate}}
+			</span>
+			<span *ngIf="profile.is_verified!=1" class="end">
+				<!-- <ion-icon class="zmdi zmdi-check-circle" text-start></ion-icon> -->
+				{{'verification_pending' | translate}}
+			</span>
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content class="bg-light">
+	<div *ngIf="user" class="form box-shadow" padding-top>
+		<ion-list no-lines>
+			<ion-row class="profile">
+				<ion-col col-4>
+					<div class="img-box" (click)="chooseAction()">
+						<img *ngIf="profile && profile.user && profile.user.image_url"
+							data-src="{{profile.user.image_url}}">
+						<img *ngIf="!profile || !profile.user || !profile.user.image_url"
+							src="assets/imgs/empty_dp.png">
+						<!-- <ion-icon name="md-camera"></ion-icon> -->
+					</div>
+				</ion-col>
+				<ion-col col-8 padding-left>
+					<ion-item>
+						<ion-label floating>{{'your_name' | translate}}</ion-label>
+						<ion-input disabled="true" [(ngModel)]="user.name"></ion-input>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+
+			<ion-item>
+				<ion-avatar item-start>
+					<ion-icon name="md-mail" class="text-thime"></ion-icon>
+				</ion-avatar>
+				<ion-label class="text-grey" floating>{{'enter_email_id' | translate}}</ion-label>
+				<ion-input disabled="true" [(ngModel)]="user.email"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-avatar item-start style="margin-bottom: 3px; margin-right: 28px;">
+					<ion-icon name="md-phone-portrait" class="text-thime"></ion-icon>
+				</ion-avatar>
+				<ion-label class="text-grey" floating>{{'mobile_number' | translate}}</ion-label>
+				<ion-input disabled="true" [(ngModel)]="user.mobile_number"></ion-input>
+			</ion-item>
+		</ion-list>
+	</div>
+
+	<div class="your-services box-shadow form">
+		<h6>{{'your_services' | translate}}</h6>
+		<ion-list no-lines style="padding-bottom: 10px">
+			<ion-item *ngIf="categories">
+				<ion-label class="text-grey" floating>{{'select_job_category' | translate}}</ion-label>
+				<ion-select *ngIf="profile.is_verified != 1" [(ngModel)]="profile.primary_category" [compareWith]="compareFn"
+					placeholder="Select category" multiple="false" [okText]="'okay' | translate"
+					[cancelText]="'cancel' | translate">
+					<ion-option *ngFor="let cat of categories" [value]="cat">{{cat.title}}</ion-option>
+				</ion-select>
+				<ion-select *ngIf="profile.is_verified == 1" disabled="true" dis [(ngModel)]="profile.primary_category" [compareWith]="compareFn"
+					placeholder="Select category" multiple="false" [okText]="'okay' | translate"
+					[cancelText]="'cancel' | translate">
+					<ion-option *ngFor="let cat of categories" [value]="cat">{{cat.title}}</ion-option>
+				</ion-select>
+			</ion-item>
+		</ion-list>
+		<p *ngIf="subcategoriestext && subcategoriestext.length && profile.is_verified != 1" (click)="selectservice()">
+			<span class=" ctext">
+				{{subcategoriestext}}
+			</span>
+		</p>
+		<p *ngIf="subcategoriestext && subcategoriestext.length && profile.is_verified == 1">
+			<span class=" ctext">
+				{{subcategoriestext}}
+			</span>
+		</p>
+		<p *ngIf="!(subcategoriestext && subcategoriestext.length) && profile.is_verified != 1" (click)="selectservice()">
+			<span class="text-ellipsis">
+				{{'select_services_you_provides' | translate}}
+			</span>
+			<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+		</p>
+	</div>
+
+	<!-- <div class="your-services about box-shadow form">
+		<h6>{{'charges_and_about' | translate}}</h6>
+		<ion-list no-lines style="">
+			<ion-row>
+				<ion-col col-12>
+					<ion-item>
+						<ion-label class="text-grey" floating>{{'your_charges' | translate}}</ion-label>
+						<ion-input type="number" [(ngModel)]="profile.price"></ion-input>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+			<ion-item>
+				<ion-label class="text-grey" floating>{{'about_service_provider' | translate}}</ion-label>
+				<ion-input placeholder="" [(ngModel)]="profile.about"></ion-input>
+			</ion-item>
+		</ion-list>
+	</div> -->
+
+	<!-- <div class="verification box-shadow">
+		<h6>{{'doc_verification' | translate}}</h6>
+		<h4 class="d-flex">
+			<ion-icon class="zmdi zmdi-upload" text-start></ion-icon> -->
+			<!-- <span>
+				{{'upload_document' | translate}}
+				<small *ngIf="profile.document_url">{{'document_uploaded' | translate}}</small>
+			</span>
+		</h4>
+	</div> -->
+	<button *ngIf="profile.is_verified != 1" class="btn" ion-button round full margin-top margin-bottom (click)="save()">
+		{{'save' | translate}}
+	</button>
+</ion-content>

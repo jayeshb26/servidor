@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Transactions</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content  class="bg-light">
+    <ion-list no-lines>
+        <ion-item *ngFor="let trans of transactions"
+        [ngClass]="(trans.status == 'pending') ? 'upcoming' : 'accepted' ">
+            <h2>
+                <span class="apid"><i>#GJ20{{trans.pid}}</i></span>
+                <span class="ml-auto ml-auto1 text-ellipsis">{{trans.status | uppercase}}</span>
+            </h2>
+            <h2>
+                <span class="text-ellipsis">Rs. {{trans.amount}} </span>
+                <span class="ml-auto text-ellipsis">{{ trans.c_at | date: 'd/MM/y hh:mm a' }}</span>
+            </h2>
+        </ion-item>
+    </ion-list>
+    <div *ngIf="role == 'vendor'" class="job-status">
+    </div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

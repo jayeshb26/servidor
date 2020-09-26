@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'select_services' | translate}} 
+                <ion-icon class="end" name="md-done-all" (click)="done(cat)"></ion-icon>
+		</ion-title>
+    </ion-navbar>
+    <div class="logo-box bg-thime">
+        <div *ngIf="parentCategory" class="logo" text-center>
+            <img *ngIf="parentCategory.secondary_image_url" data-src="{{parentCategory.secondary_image_url}}">
+            <img *ngIf="!parentCategory.secondary_image_url && parentCategory.image_url"
+                data-src="{{parentCategory.image_url}}">
+            <img *ngIf="!parentCategory.secondary_image_url && !parentCategory.image_url"
+                src="assets/imgs/empty_category.png">
+            <p class="text-white">{{parentCategory.title}}</p>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div class="empty-view" *ngIf="!isLoading && (!subCategories || !subCategories.length)">
+        <div style="text-align:center">
+            <img src="assets/imgs/empty_category.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold;">
+                {{'no_subcats_to_show' | translate}}
+            </span>
+        </div>
+    </div>
+    <ion-list *ngIf="subCategories && subCategories.length">
+        <ion-item *ngFor="let cat of subCategories">
+            <ion-label (click)="toggleSelection(cat)">{{cat.title}}</ion-label>
+            <ion-checkbox [checked]="cat.selected" (click)="toggleSelection(cat)"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+</ion-content>

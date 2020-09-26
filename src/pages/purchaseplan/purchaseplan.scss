@@ -1,0 +1,152 @@
+page-purchaseplan {
+	.header {
+		.list {
+			margin-top: 20px;
+			margin-bottom: 25px;
+		}
+	}
+
+	.form {
+		max-width: 100%;
+	}
+
+	.list {
+		h4 {
+			margin: 0;
+			font-size: 1.7rem;
+			padding: 20px 10px 17px 32px;
+			color: #6d6b71;
+		}
+
+		.item {
+			align-items: flex-start;
+			width: calc(100% - 20px);
+			margin: auto;
+			margin-bottom: 10px;
+			border-radius: 4px;
+			box-shadow: 0 2px 3px 0px rgba(0, 0, 0, .10);
+			padding: 8px 2px 3px 22px;
+			margin-bottom: 0;
+
+			h2 {
+				margin: 0;
+				font-size: 1.83rem;
+				padding-bottom: 7px;
+				color: #424242;
+			}
+
+			p {
+				font-size: 1.5rem;
+				color: #c0c0c0;
+				font-weight: 400;
+			}
+
+			h3 {
+				&[item-end] {
+					font-size: 1.9rem;
+					font-weight: 700;
+					color: #000;
+				}
+			}
+		}
+	}
+
+	.scroll-content {
+		.list {
+			padding: 10px;
+
+			.row {
+				margin: 0 -5px;
+				overflow: hidden;
+
+				.col {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+			}
+
+			.item {
+				align-items: center;
+				padding: 0 5px;
+				padding-right: 0;
+				margin: 0;
+				margin-bottom: 10px;
+				border-radius: 5px !important;
+				box-shadow: none;
+				border: none !important;
+				width: 100%;
+
+				.text-input {
+					font-size: 1.3rem;
+				}
+
+				img {
+					&[item-start] {
+						width: 32px;
+						margin-right: 30px;
+					}
+				}
+
+			}
+		}
+	}
+
+	.payment_options {
+		.list {
+			padding: 0;
+margin-top: 10px;
+			h3 {
+				color: darken($grey-color, 20%);
+				margin: 0;
+				font-size: 1.6rem;
+				font-weight: 700;
+				padding: 17px 39px;
+			}
+
+			.item {
+				width: calc(100% - 25px);
+				margin: 0 auto;
+				margin-bottom: 7px;
+				padding: 11px 26px 11px 26px;
+				box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+				border-radius: 4px !important;
+
+				ion-icon {
+					&[item-start] {
+						margin: 0;
+						color: darken($grey-color, 30%);
+						font-size: 2.7rem;
+						min-width: 45px;
+					}
+
+				}
+
+				.item-inner {
+					padding: 0;
+					margin: 0;
+
+					.label {
+						margin: 0;
+
+						h2 {
+							margin: 0;
+							padding: 0;
+							font-weight: 500;
+							font-size: 1.7rem;
+						}
+					}
+
+				}
+			}
+		}
+	}
+
+	.footer {
+		padding: 12px;
+
+		.button[margin-bottom] {
+			margin: 0 !important;
+		}
+
+	}
+}

@@ -1,0 +1,78 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "call-number": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-crop": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-firebase-lib": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-googleplus": {
+      "PLAY_SERVICES_VERSION": "11.8.0",
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-stripe": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova.plugins.diagnostic": {
+      "ANDROID_SUPPORT_VERSION": "28.+",
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.masaheb.servidorvendor"
+    }
+  },
+  "dependent_plugins": {}
+}

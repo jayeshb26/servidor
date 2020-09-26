@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{'notifications' | translate}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+	<div class="empty-view" *ngIf="(!notifications || !notifications.length)">
+		<div style="text-align:center">
+			<img src="assets/imgs/empty_notification.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold;">
+				{{'empty_notifications' | translate}}
+			</span>
+		</div>
+	</div>
+	<ion-list *ngIf="notifications && notifications.length" no-lines>
+		<ion-item *ngFor="let item of notifications">
+			<ion-label>
+				<h2 class="d-flex"><span class="item_title {{item.colorclass}}">{{item.title}}</span> <span class="end" text-end>{{item.time}}</span></h2>
+				<p>{{item.detail}}</p>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+</ion-content>

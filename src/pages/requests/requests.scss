@@ -1,0 +1,189 @@
+page-requests {
+	.scroll-content {
+		background-color: $page-background !important;
+	}
+    .segment {
+        .segment-button {
+            border: none !important;
+            position: relative;
+            font-size: 1.6rem;
+            color: $white-color;
+            text-transform: none;
+            font-weight: 400;
+            opacity: unset;
+            letter-spacing: .5px;
+            background: none !important;
+            border: none !important;
+            height: 4.7rem;
+            width: 100%;
+            font-weight: 300;
+
+            &.segment-activated {
+                font-weight: 400;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0;
+                    right: 0;
+                    width: 100px;
+                    height: 4px;
+                    margin: auto;
+                    background: $white-color;
+                }
+            }
+        }
+    }
+
+    .list {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        h2 {
+            &.heading {
+                font-size: 1.4rem;
+                font-weight: 300;
+                margin: 0;
+                padding: 13px 10px 10px 20px;
+                color: $light-grey-color;
+            }
+        }
+
+        .item {
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-left: 2px;
+            margin: 10px;
+            width: auto;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+            .item-inner {
+                padding-right: 5px;
+                .label-md {
+                    margin: 0px;
+                }
+            }
+
+            ion-avatar {
+                width: 70px;
+                height: 70px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 50%;
+                margin: 0px 2px 0px 0;
+
+                img {
+                    position: absolute;
+                    top: 0 !important;
+                    left: -50% !important;
+                    right: -50% !important;
+                    bottom: 0 !important;
+                    margin: auto !important;
+                    width: 100%;
+                    height: auto;
+                    max-width: unset !important;
+                }
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+
+                span {
+                    &.ml-auto {
+                        font-weight: 600;
+                        min-width: 107px;
+                        text-align: right;
+                        font-size: 1.1rem;
+                        margin-left: auto;
+                    }
+                }
+
+                &.pending,.accepted,.onway,.ongoing,.reached {
+                    .apid {
+                        color: $sec-color;
+                    }
+                    span {
+                        &.ml-auto {
+                            color: $sec-color;
+                        }
+                    }
+                }
+
+                &.complete {
+                    .apid {
+                        color: green;
+                    }
+                    span {
+                        &.ml-auto {
+                            color: green;
+                        }
+                    }
+                }
+
+                &.cancelled,.rejected {
+                    .apid {
+                        color: red;
+                    }
+                    span {
+                        &.ml-auto {
+                            color: red;
+                        }
+                    }
+                }
+            }
+
+            p {
+                display: flex;
+                align-items: center;
+
+                span {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    color: $black-color !important;
+                    &.ml-auto {
+                        color: $thime-color !important;
+                        margin-left: auto;
+                        font-weight: bold;
+                        font-size: 1.25rem;
+                        min-width: 53px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
+    .empty-view {
+        width: 200px;
+        margin: auto;
+        height: 200px;
+        top: 10%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10%;
+
+        img {
+            width: 100px;
+            margin: auto;
+        }
+
+        span {
+            display: block;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 50px;
+
+            span {
+                display: unset !important;
+            }
+        }
+    }
+}

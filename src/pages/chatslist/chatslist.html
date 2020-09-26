@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'chat' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div class="empty-view" *ngIf="(!chats || !chats.length)">
+        <div style="text-align:center">
+            <img src="assets/imgs/empty_category.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold;">
+                {{'no_chats_to_show' | translate}}
+            </span>
+        </div>
+    </div>
+    <ion-list no-lines>
+        <ion-item *ngFor="let chat of chats" (click)="chatscreen(chat)">
+            <ion-avatar item-start>
+                <img *ngIf="chat.chatImage && chat.chatImage.length" data-src="{{chat.chatImage}}">
+                <img *ngIf="!chat.chatImage || !chat.chatImage.length" src="assets/imgs/empty_dp.png">
+            </ion-avatar>
+            <h2 class="d-flex"><span class="text-ellipsis">{{chat.chatName}}</span>
+                <span class="ml-auto end small" text-end>{{chat.timeDiff}}</span>
+            </h2>
+            <p class="text-grey text-ellipsis">{{chat.lastMessage}}</p>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

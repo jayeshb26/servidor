@@ -1,0 +1,81 @@
+page-conatctus {
+    .call-now {
+        margin-top: -1px;
+        padding: 30px;
+        h6 {
+            margin: 0;
+            font-weight: 400;
+            padding-top: 27px;
+            padding-bottom: 10px;
+        }
+        .button {
+            color: $sec-color !important;
+            &.btn {
+                height: 5rem;
+            }
+            background: $white-color !important;
+            &:hover,
+            &:focus,
+            &:active {
+                background: $white-color !important;
+            }
+            ion-icon {
+                font-size: 1.9rem;
+            }
+        }
+    }
+    .form .list .item .label {
+        color: $sec-color !important;
+        font-weight: bold !important;
+    }
+    h5 {
+        padding-top: 10px;
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+    .form {
+        .list {
+            padding: 0;
+            margin-bottom: 0px;
+            .item {
+                margin-bottom: 25px;
+                &.item-textarea {
+                    .input-wrapper {
+                        display: block;
+                        ion-textarea {
+                            line-height: 14px;
+                            margin-top: 6px;
+                            font-size: 1.4rem;
+                            .text-input {
+                                width: 100%;
+                                margin: 0;
+                                min-height: unset;
+                                max-height: 20px;
+                                ::-moz-placeholder {
+                                    color: $light-grey-color;
+                                    font-weight: 300;
+                                }
+                               :-ms-input-placeholder {
+                                    color: $light-grey-color;
+                                    font-weight: 300;
+                                }
+                                ::-webkit-input-placeholder {
+                                    text-indent: 0;
+                                    color: darken($light-grey-color, 100%);
+                                    font-weight: 300;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        padding: 0 30px;
+        padding-bottom: 7px;
+        .button {
+            background-color: $sec-color !important;
+        }
+    }
+}

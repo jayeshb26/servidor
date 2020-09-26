@@ -1,0 +1,138 @@
+page-allreview {
+    .row {
+        &.details {
+            //            padding: 0 20px;
+            .col {
+                padding: 0 0px;
+                .button {
+                    font-size: 1.5rem;
+                    letter-spacing: .5px;
+                    font-weight: 400;
+                    color: darken($grey-color, 5%);
+                    margin: 0;
+                    background: $white-color !important;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background: $white-color !important;
+                    }
+                    ion-icon {
+                        margin-right: 4px;
+                        min-width: 23px;
+                        &.ml-auto {
+                            margin: 0;
+                            margin-left: 24px;
+                        }
+                        img {
+                            min-width: 23px;
+                            width: 23px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .list {
+        padding: 0 16px;
+        &.reviews {
+            .item {
+                margin: 20px 0px;
+                padding: 10px;
+
+                .label {
+                    margin: 0;
+                    white-space: normal;
+
+                    .reviews-details {
+                        margin-bottom: 12px;
+                        display: flex;
+                        align-items: center;
+
+                        h2 {
+                            padding-top: 0px;
+                            margin: 0;
+                            font-size: 1.6rem;
+                            font-weight: 600;
+                            color: black;
+
+                            small {
+                                display: block;
+                                color: $thime-color;
+                                font-size: 1.2rem;
+                                font-weight: 400;
+                                margin-top: 2px;
+
+                                ion-icon {
+                                    margin: 0px 1px;
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+
+                        .review-img {
+                            min-width: 50px;
+                            max-width: 50px;
+                            height: 50px;
+                            position: relative;
+                            overflow: hidden;
+                            border-radius: 50%;
+                            margin-right: 20px;
+
+                            img {
+                                width: 55px;
+                                position: absolute;
+                            }
+                        }
+
+                        p {
+                            margin-left: auto;
+                            padding: 0;
+                            margin-bottom: 17px;
+                            font-size: 1.13rem;
+                            min-width: 89px;
+                            text-align: right;
+                            font-weight: 600;
+                            color: $thime-color;
+                        }
+                    }
+
+                    p {
+                        color: $sec-color;
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        line-height: 20px;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+    .empty-view {
+        width: 200px;
+        margin: auto;
+        height: 200px;
+        top: 10%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10%;
+
+        img {
+            width: 100px;
+            margin: auto;
+        }
+
+        span {
+            display: block;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 50px;
+
+            span {
+                display: unset !important;
+            }
+        }
+    }
+}

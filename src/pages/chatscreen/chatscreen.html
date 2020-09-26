@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <span class="profile">
+                <img *ngIf="chat.chatImage && chat.chatImage.length" data-src="{{chat.chatImage}}">
+                <img *ngIf="!chat.chatImage || !chat.chatImage.length" src="assets/imgs/empty_dp.png">
+            </span>
+			<span>{{chat.chatName}}</span>
+            <!-- <small> | {{chat.chatStatus}}</small> -->
+            <!-- <span><ion-icon name="md-more"></ion-icon></span> -->
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content #content class="bg-light">
+    <ion-card *ngFor="let msg of messages" [ngClass]="(chat.myId == msg.senderId) ? 'send' : 'received'">
+        <h2>{{msg.body}}</h2>
+        <p>{{msg.timeDiff}}</p>
+    </ion-card>
+</ion-content>
+
+
+<ion-footer no-border>
+	<ion-list class="" no-lines>
+		<div class="d-flex input_field">
+			<ion-item>
+<!--				<h2 item-start text-end>{{'yes' | translate}}</h2>-->
+				<ion-textarea type="text" rows="1" [(ngModel)]="newMessageText" placeholder="{{'type_your_message' | translate}}"></ion-textarea>
+			</ion-item>
+			<h3 (click)="send()" class="end">
+				<ion-icon name="md-send" text-start></ion-icon>
+				<span>{{'send' | translate}}</span>
+			</h3>
+		</div>
+	</ion-list>
+</ion-footer>

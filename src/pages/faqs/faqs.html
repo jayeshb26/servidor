@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'faq' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-list no-lines>
+        <ion-item *ngFor="let faq of faqs" [ngClass]="faq.id == curFaqId ? 'active' : '' " (click)="expandFaq(faq)">
+            <h2>
+                <span class="text-ellipsis">{{faq.title}}</span>
+                <ion-icon name="ios-arrow-down-outline"></ion-icon>
+            </h2>
+            <p *ngIf="faq.id != curFaqId">{{faq.short_description}}</p>
+            <p *ngIf="faq.id == curFaqId">{{faq.description}}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

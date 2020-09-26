@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'upload_portfolio_image' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="img_box" (click)="pickPicker()">
+        <ion-icon *ngIf="!imageToUpload || !imageToUpload.length" name="md-camera"></ion-icon>
+        <img *ngIf="imageToUpload && imageToUpload.length" data-src="{{imageToUpload}}">
+        <input id="portfolio-image" style="display: none" (change)="upload($event, true)" type="file">
+    </div>
+    <div class="form">
+        <ion-list inset>
+            <ion-item>
+                <ion-avatar item-start>
+                    <ion-icon name="md-attach" class="text-thime"></ion-icon>
+                </ion-avatar>
+                <ion-label floating>{{'add_link' | translate}}</ion-label>
+                <ion-input [(ngModel)]="linkPortfolio" (ngModelChange)="linkPortfolio = $event.toLowerCase()"></ion-input>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
+<ion-footer no-border>
+    <button class="btn" ion-button full no-margin (click)="saveFolio()">
+        {{'upload_image' | translate}}
+    </button>
+</ion-footer>

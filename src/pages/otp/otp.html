@@ -1,0 +1,38 @@
+<ion-header class="bg-transparent">
+    <ion-navbar>
+        <ion-title><span>{{"otp_verification" | translate}}</span></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div id="recaptcha-container"></div>
+    <h1 text-center>{{'verification_code' | translate}}<small>{{'please_type_the_verification_code' | translate}} <br>
+            {{'sent_to' | translate}} {{phoneNumberFull}}</small></h1>
+
+    <ion-row text-center>
+        <ion-col>
+            <ion-input type="number" #otp1 required maxLength="1" (keyup)="otpController($event,otp2,'')" [(ngModel)]="otp11">
+            </ion-input>
+            <ion-input type="number" #otp2 required maxLength="1" (keyup)="otpController($event,otp3,otp1)" [(ngModel)]="otp22">
+            </ion-input>
+            <ion-input type="number" #otp3 required maxLength="1" (keyup)="otpController($event,otp4,otp2)" [(ngModel)]="otp33">
+            </ion-input>
+            <ion-input type="number" #otp4  required maxLength="1" (keyup)="otpController($event,'',otp3)" [(ngModel)]="otp44">
+            </ion-input>
+        </ion-col>
+    </ion-row>
+
+    <div class="form">
+        <!-- <ion-input type="number" placeholder="{{'enter_otp' | translate}}" [(ngModel)]="otp"></ion-input> -->
+        <!-- <input class="otpinput" type="number" placeholder="Enter OTP" [(ngModel)]="otp"> -->
+        <button ion-button round full class="btn" (click)="verify()">
+            {{'confirm' | translate}}
+        </button>
+        <p text-center>
+            {{'dint_received_code' | translate}}
+            <strong (click)="sendOTP()">
+                {{'resend_now' | translate}}
+            </strong>
+        </p>
+    </div>
+</ion-content>

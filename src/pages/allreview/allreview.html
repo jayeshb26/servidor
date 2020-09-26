@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'your_reviews' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div class="empty-view" *ngIf="!isLoading && (!reviews || !reviews.length)">
+        <div style="text-align:center">
+            <img src="assets/imgs/empty_reviews.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold;">
+                {{'no_reviews_to_show' | translate}}
+            </span>
+        </div>
+    </div>
+    <ion-list no-lines class="reviews">
+        <ion-item *ngFor="let review of reviews">
+            <div class="reviews-details">
+                <div class="review-img">
+                    <img *ngIf="review.user && review.user.image_url" data-src="{{review.user.image_url}}">
+                    <img *ngIf="!review.user || !review.user.image_url" src="assets/imgs/empty_dp.png">
+                </div>
+                <h2 class="text-ellipsis">
+                    {{review.user.name}}
+                    <br>
+                    <small >
+                        <!-- {{review.rating}} -->
+                        <ion-icon name="star" *ngFor="let item of [].constructor(review.rating); let i = index"></ion-icon>
+                    </small>
+                </h2>
+                <p class="text-ellipsis">{{review.created_at}} </p>
+            </div>
+            <p>{{review.review}}</p>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
